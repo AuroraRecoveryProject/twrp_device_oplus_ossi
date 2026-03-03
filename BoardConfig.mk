@@ -5,6 +5,7 @@
 #
 
 # Building with minimal manifest
+DEVICE_PATH                                  := device/oplus/ossi
 ALLOW_MISSING_DEPENDENCIES                      := true
 BUILD_BROKEN_DUP_RULES                          := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES    := true
@@ -119,6 +120,7 @@ TW_DEFAULT_BRIGHTNESS   := 1000
 TW_FRAMERATE            := 120
 TW_MAX_BRIGHTNESS       := 2047
 TW_SCREEN_BLANK_ON_BOOT := true
+TW_ROTATION             := 270
 TW_THEME                := portrait_hdpi
 
 # TWRP file system
@@ -152,5 +154,6 @@ TW_EXTRA_LANGUAGES                      := true
 TW_LOAD_VENDOR_MODULES                  := "adsp_loader_dlkm.ko oplus_chg_v2.ko stm_st54se_gpio.ko nxp-nci.ko"
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI      := true
 TW_NO_SCREEN_BLANK                      := true
+TW_SKIP_ADDITIONAL_FSTAB                := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID  := true
 TW_NO_NETWORK                           := true

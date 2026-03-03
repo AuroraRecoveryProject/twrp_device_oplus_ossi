@@ -23,8 +23,9 @@ git clone --depth=1 https://github.com/kmiit/twrp_device_oplus_sm87xx device/opl
 
 ```shell
 source build/envsetup.sh
-lunch twrp_sm87xx
+lunch twrp_ossi-bp2a-eng
 make recoveryimage
+m rrecoveryimage
 ```
 
 If there is no error, recovery.img will be found in `out/target/product/sm87xx/recovery.img`
@@ -44,7 +45,7 @@ Works:
 - [X] USB OTG
 - [X] Vibrator
 
-## To use it:
+## To use it
 
 ```shell
 fastboot flash recovery recovery.img
