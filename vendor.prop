@@ -1,2 +1,2 @@
-# TW rotation
-persist.twrp.rotation=270
+# TW rotation, Don't need now, just keep it for debug
+# persist.twrp.rotation=270
