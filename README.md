@@ -28,12 +28,14 @@ Works:
 - [X] ADB
 - [X] Display
 - [X] Decryption
-- [X] Fasbootd
+- [X] Fastbootd
+- [X] Fastbootd
 - [X] Flashing
 - [X] MTP
 - [X] Sideload
 - [X] Touch
 - [X] USB OTG
+- [x] WLAN(wpa_cli/wpa_supplicant form wpa_supplicant_8 source)
 - [ ] Vibrator(OnePlus Pad have no vibrator, so it is not tested)
 
 ## To use it
