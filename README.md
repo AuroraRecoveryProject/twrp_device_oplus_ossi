@@ -34,6 +34,7 @@ Works:
 - [X] Sideload
 - [X] Touch
 - [X] USB OTG
+- [x] WLAN(OEM)
 - [ ] Vibrator(OnePlus Pad have no vibrator, so it is not tested)
 
 ## To use it
