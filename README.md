@@ -1,17 +1,8 @@
-# TWRP device tree for OPLUS sm87xx sreies
+# TWRP device tree for OPLUS ossi
 
 ## Supported devices
 
-- Realme GT7 Pro (CN, GL)
-- Realme GT7 Pro Speed (CN, GL)
-- OnePlus 13T (CN)
-- OnePlus 13s (IN)
-- OnePlus Ace 5 Pro (CN)
-- OnePlus 13 (CN, GL)
-- Realme GT8 (CN)
-- OnePlus Ace 6 (CN)
-- OnePlus Turbo 6 (CN)
-- OnePlus Pad 2 Pro (CN)
+- OnePlus Pad 2 Pro
 
 ## Build it yourself?
 
@@ -19,17 +10,16 @@
 mkdir twrp && cd twrp
 repo init --depth=1 -u https://github.com/TWRP-Test/platform_manifest_twrp_aosp.git -b twrp-16.0
 repo sync
-git clone --depth=1 https://github.com/kmiit/twrp_device_oplus_sm87xx device/oplus/sm87xx
+git clone --depth=1 https://github.com/AuroraRecoveryProject/twrp_device_oplus_ossi device/oplus/ossi
 ```
 
 ```shell
 source build/envsetup.sh
-lunch twrp_ossi-bp2a-eng
-make recoveryimage
+lunch twrp_ossi
 m rrecoveryimage
 ```
 
-If there is no error, recovery.img will be found in `out/target/product/sm87xx/recovery.img`
+If there is no error, recovery.img will be found in `out/target/product/ossi/recovery.img`
 
 ## Features
 
@@ -44,7 +34,7 @@ Works:
 - [X] Sideload
 - [X] Touch
 - [X] USB OTG
-- [X] Vibrator
+- [ ] Vibrator(OnePlus Pad have no vibrator, so it is not tested)
 
 ## To use it
 
