@@ -14,7 +14,7 @@ on:
       DEVICE_TREE_URL:
         description: "Device tree url"
         required: true
-        default: "https://github.com/kmiit/twrp_device_oplus_sm87xx"
+        default: "https://github.com/AuroraRecoveryProject/twrp_device_oplus_ossi"
       DEVICE_TREE_BRANCH:
         description: "Device tree branch"
         required: true
@@ -22,11 +22,11 @@ on:
       DEVICE_PATH:
         description: "Device path device/"
         required: true
-        default: "oplus/sm87xx"
+        default: "oplus/ossi"
       DEVICE_NAME:
         description: "Device name"
         required: true
-        default: "sm87xx"
+        default: "ossi"
       LUNCH_TARGET:
         description: "lunch twrp_ (default same as device name)"
         required: false
