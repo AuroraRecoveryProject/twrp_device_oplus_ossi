@@ -8,7 +8,7 @@
 
 ```shell
 mkdir twrp && cd twrp
-repo init --depth=1 -u https://github.com/TWRP-Test/platform_manifest_twrp_aosp.git -b twrp-16.0
+repo init --depth=1 -u https://github.com/AuroraRecoveryProject/platform_manifest_twrp_aosp -b twrp-16.0
 repo sync
 git clone --depth=1 https://github.com/AuroraRecoveryProject/twrp_device_oplus_ossi device/oplus/ossi
 ```

@@ -6,7 +6,7 @@ on:
       TWRP_MANIFEST_URL:
         description: "TWRP manifest url"
         required: true
-        default: "https://github.com/TWRP-Test/platform_manifest_twrp_aosp"
+        default: "https://github.com/AuroraRecoveryProject/platform_manifest_twrp_aosp"
       TWRP_MANIFEST_BRANCH:
         description: "TWRP branch"
         required: true
