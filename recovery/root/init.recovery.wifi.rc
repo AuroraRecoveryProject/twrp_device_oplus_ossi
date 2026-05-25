@@ -1,8 +1,8 @@
 on property:twrp.modules.loaded=true
     ######## WiFi module loading
-    write /dev/kmsg "[jasonwifi][early-init] WiFi early-init started"
+    write /dev/kmsg "[lauriewifi][early-init] WiFi early-init started"
     write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
-    write /dev/kmsg "[jasonwifi][early-init] Starting modules load..."
+    write /dev/kmsg "[lauriewifi][early-init] Starting modules load..."
     start cp-wifi-ko
 
 on property:twrp.cpko=true
@@ -30,12 +30,12 @@ on property:twrp.cpko=true
     insmod /odm/wifi/modules/rfkill.ko
     wait /odm/wifi/modules/cfg80211.ko
     insmod /odm/wifi/modules/cfg80211.ko
-    write /dev/kmsg "[jasonwifi][early-init] WiFi early-init modules loaded successfully!"
+    write /dev/kmsg "[lauriewifi][early-init] WiFi early-init modules loaded successfully!"
     setprop twrp.insmodko 1
 
 on init
     ######## WiFi prepare directories
-    write /dev/kmsg "[jasonwifi][prepare-files] WiFi prepare started"
+    write /dev/kmsg "[lauriewifi][prepare-files] WiFi prepare started"
     # wpa_cli (drops to uid=wifi) needs to bind a temp socket in /tmp
     chown root wifi /tmp
     chmod 0775 /tmp
@@ -46,17 +46,17 @@ on init
     mkdir /data/vendor/firmware/update 0777 root root
     mkdir /data/vendor/firmware/update/wlan 0777 root root
     copy /vendor/etc/wifi/wlan/WCNSS_qcom_cfg.ini /data/vendor/firmware/update/wlan/WCNSS_qcom_cfg.ini
-    write /dev/kmsg "[jasonwifi][prepare-files] WiFi prepare done"
+    write /dev/kmsg "[lauriewifi][prepare-files] WiFi prepare done"
 
 on boot
     ######## WiFi boot env
-    write /dev/kmsg "[jasonwifi][boot] Setting Wlan boot env..."
+    write /dev/kmsg "[lauriewifi][boot] Setting Wlan boot env..."
     write /sys/kernel/cnss/recovery 3
     chown radio wakelock /sys/power/wake_lock
     chown radio wakelock /sys/power/wake_unlock
     chmod 0660 /sys/power/wake_lock
     chmod 0660 /sys/power/wake_unlock
-    write /dev/kmsg "[jasonwifi][boot] Wlan boot env set done!"
+    write /dev/kmsg "[lauriewifi][boot] Wlan boot env set done!"
 
 ######## WiFi services
 
@@ -89,33 +89,33 @@ service cp-wifi-ko /system/bin/cp-wifi-ko.sh
     seclabel u:r:recovery:s0
 
 on property:survival.start.service=true
-    write /dev/kmsg "[jasonwifi][service] Starting Qualcomm services"
+    write /dev/kmsg "[lauriewifi][service] Starting Qualcomm services"
     start vendor.qrtr-ns
-    write /dev/kmsg "[jasonwifi][service] vendor.qrtr-ns started"
-    write /dev/kmsg "[jasonwifi][service] Qualcomm services started successfully!"
+    write /dev/kmsg "[lauriewifi][service] vendor.qrtr-ns started"
+    write /dev/kmsg "[lauriewifi][service] Qualcomm services started successfully!"
 
 on property:qcomwlan.driver.load=true
-    write /dev/kmsg "[jasonwifi][driver] Starting load WiFi driver modules..."
+    write /dev/kmsg "[lauriewifi][driver] Starting load WiFi driver modules..."
     write /sys/devices/platform/soc/b0000000.qcom,cnss-peach/fs_ready 1
     wait /odm/wifi/modules/qca_cld3_peach_v2.ko
     insmod /odm/wifi/modules/qca_cld3_peach_v2.ko
-    write /dev/kmsg "[jasonwifi][driver] qca_cld3_peach_v2.ko loaded"
-    write /dev/kmsg "[jasonwifi][driver] WiFi driver loaded successfully!"
-    write /dev/kmsg "[jasonwifi][interface] Waiting for wlan0..."
+    write /dev/kmsg "[lauriewifi][driver] qca_cld3_peach_v2.ko loaded"
+    write /dev/kmsg "[lauriewifi][driver] WiFi driver loaded successfully!"
+    write /dev/kmsg "[lauriewifi][interface] Waiting for wlan0..."
     wait /sys/class/net/wlan0 10
-    write /dev/kmsg "[jasonwifi][interface] Interface wlan0 found"
-    setprop jasonwifi.driver.ready true
+    write /dev/kmsg "[lauriewifi][interface] Interface wlan0 found"
+    setprop lauriewifi.driver.ready true
 
 on property:twrp.insmodko=1
     setprop survival.start.service true
     setprop qcomwlan.driver.load true
 
-on property:jasonwifi.driver.ready=true
+on property:lauriewifi.driver.ready=true
     mkdir /tmp/recovery 0777 root root
     mkdir /tmp/recovery/sockets 0777 root root
-    write /dev/kmsg "[jasonwifi][post-fs-data] wpa_supplicant sockets dir created"
+    write /dev/kmsg "[lauriewifi][post-fs-data] wpa_supplicant sockets dir created"
     start wpa_supplicant
-    write /dev/kmsg "[jasonwifi][interface] wpa_supplicant started"
+    write /dev/kmsg "[lauriewifi][interface] wpa_supplicant started"
 
 on property:supplicant.status=running
     start wpa_supplicant
